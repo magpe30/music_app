@@ -1,0 +1,35 @@
+<%- include("partials/header") %>
+
+
+<div id="newContainer">
+	
+
+	<div class="ui raised very padded text container segment">
+
+		<div class="ui huge header">
+			<%=blog.title%>
+		</div>
+		<img class="ui rounded image" src="<%=blog.image%>">
+		<i class="calendar alternate outline icon"></i><span class="date"><%=blog.created.toDateString()%></span>
+		<p>
+			<%=blog.body%>
+		</p>
+		<a class="ui teal basic button" href="/blogs/<%=blog._id%>/edit">Edit</a>
+		<form id="delete" action="/blogs/<%= blog._id%>?_method=DELETE" method="POST">
+			<button class="ui negative basic button">
+				Delete
+			</button>
+		</form>
+		<a class="ui black basic button" href="/blogs">Back</a>
+		
+	</div>
+</div>
+
+
+
+
+
+
+
+
+<%- include("partials/footer") %>

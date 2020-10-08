@@ -1,0 +1,32 @@
+<%- include("partials/header") %>
+
+<div class="background">
+	
+
+	<div class="container">
+
+		<form action="/login" method="POST">
+			<div class="form-group">
+				<h1>
+					Login with your username and password.
+				</h1>
+				<label id="formText">Username</label>
+				<input type="text" class="form-control" name="username" placeholder="username">
+
+			</div>
+			<div class="form-group">
+				<label id="formText">Password</label>
+				<input type="password" class="form-control" name="password" placeholder="Password">
+			</div>
+
+			<button type="submit" class="btn btn-lg  btn-outline-info">Submit</button>
+		</form>
+
+	</div>
+
+</div>	
+
+
+
+
+<%- include("partials/footer") %>

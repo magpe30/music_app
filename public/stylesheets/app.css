@@ -1,0 +1,73 @@
+
+i.icon, i.icons {
+    font-size: 1.0em !important;
+}
+#newContainer{
+	
+	text-align: center;
+	
+	margin-top:  7em !important;
+}
+img {
+	width: 100% !important;
+}
+
+.date{
+	padding-top: 2em !important;
+	color: grey;
+}
+#delete{
+	display: inline!important;
+}
+#block{
+	margin-top: 100px;
+}
+#mainHeader{
+	font-size:2em !important;
+	color:#50c9c3;
+}
+#mainButton{
+	margin-top: 15px;
+	margin-bottom: 15px;
+}
+
+#enterSite{
+    
+    position: fixed; 
+  	top: 50%;
+  	left: 50%;
+}
+#registerForm{
+	position: absolute;
+    top: 40%;
+	left: 38%;
+}
+#regParagraph{
+	color: white;
+}
+form{
+	z-index: 1;
+  	position: relative;
+  	text-align: left;
+  	padding-top: 20vh;
+}
+.background{
+	background: #434343;  /* fallback for old browsers */
+	background: -webkit-linear-gradient(to right, #434343, #000000);  /* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(to right, #434343, #000000); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+
+	width:100%;
+	height: 100%;
+}
+.form-group{
+	color: white;
+}
+
+}
+
+
+
+
+
+

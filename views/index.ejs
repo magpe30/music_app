@@ -1,0 +1,37 @@
+<%- include("partials/header") %>
+
+
+
+<div class="ui main text container inverted segment" id="block">
+	<div class="ui massive header">MusicBlog- create your own post!</div>
+	<div class="ui top attached segment">
+		<div class="ui divided">
+			<%blogs.forEach(function(blog){%>
+				<div class="item">
+					<div class="image">
+						<img class="rounded" src="<%=blog.image%>">
+					</div>
+					<div class="content">
+						<a class="header" id="mainHeader" href="/blogs/<%=blog._id%>"><%=blog.title%></a>
+						<div class="meta">
+							<span><%=blog.created.toDateString()%></span>
+						</div>
+						<div class="description">
+							<p>
+								<%-blog.body.substring(0, 100)%>...
+							</p>
+						</div>
+						<div class="extra">
+							<a href="/blogs/<%=blog._id%>" class="ui teal button bottom" id="mainButton">Read more<i class="chevron circle right icon" id="arrow"></i></a>
+						</div>
+					</div>
+				</div>
+				
+			<% }) %>
+		</div>
+	</div>
+</div>
+
+
+
+<%- include("partials/footer") %>
