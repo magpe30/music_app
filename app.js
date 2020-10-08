@@ -211,6 +211,7 @@ function isLoggedIn(req,res,next){
 
 
 
-app.listen(3000, function(){
-	console.log("BlogApp server is running!");
+var port = process.env.PORT || 3000;
+app.listen(port, function () {
+  console.log("Server Has Started!");
 });
