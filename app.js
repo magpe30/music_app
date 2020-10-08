@@ -33,6 +33,7 @@ app.use(methodOverride("_method"));
 //PASSPORT CONFICURATION/////////////
 app.use(require("express-session")({
 	secret: "music is the best",
+	store: new MongoStore(options),
 	resave: false,
 	saveUninitialized: false
 }));
