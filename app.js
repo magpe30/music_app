@@ -31,30 +31,13 @@ app.use(express.static('/public'))
 app.use(methodOverride("_method"));
 
 //PASSPORT CONFICURATION/////////////
-//app.use(require("express-session")({
-//	secret: "music is the best",
-//	resave: false,
-//	saveUninitialized: false
-	
-	
-//}));
-app.use(session({
-cookie:{
-    secure: true,
-    maxAge:60000
-       },
-store: new RedisStore(),
-secret: 'music is the best',
-saveUninitialized: true,
-resave: false
+app.use(require("express-session")({
+	secret: "music is the best",
+	resave: false,
+	saveUninitialized: false
 }));
+	
 
-app.use(function(req,res,next){
-if(!req.session){
-    return next(new Error('Oh no')) //handle error
-}
-next() //otherwise continue
-});
 
 
 app.use(passport.initialize());
