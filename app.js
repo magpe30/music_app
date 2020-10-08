@@ -9,7 +9,17 @@ var express             = require("express"),
 
  
 
-mongoose.connect("mongodb://localhost:27017/blog_app", {useNewUrlParser:true});
+//mongoose.connect("mongodb://localhost:27017/blog_app", {useNewUrlParser:true});
+//mongodb+srv://Magda:Kapsel909@cluster0.tiveo.mongodb.net/<dbname>?retryWrites=true&w=majority
+mongoose.connect("mongodb+srv://Magda:Kapsel909@cluster0.tiveo.mongodb.net/cluster0?retryWrites=true&w=majority", {
+	useNewUrlParser: true,
+	useCreateIndex: true
+}).then (() => {
+	console.log("Connected to DB");
+}).catch(err =>{
+	console.log("ERROR:", err.message);
+});
+
 mongoose.set('useUnifiedTopology', true);
 mongoose.set('useNewUrlParser', true);
 mongoose.set('useFindAndModify', false);
