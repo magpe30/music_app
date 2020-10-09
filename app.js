@@ -9,16 +9,19 @@ var express             = require("express"),
 
  
 
-//mongoose.connect("mongodb://localhost:27017/blog_app", {useNewUrlParser:true});
+
+mongoose.connect(process.env.DATABASEURL);
 //mongodb+srv://Magda:Kapsel909@cluster0.tiveo.mongodb.net/<dbname>?retryWrites=true&w=majority
-mongoose.connect("mongodb+srv://Magda:Kapsel909@cluster0.tiveo.mongodb.net/cluster0?retryWrites=true&w=majority", {
-	useNewUrlParser: true,
-	useCreateIndex: true
-}).then (() => {
-	console.log("Connected to DB");
-}).catch(err =>{
-	console.log("ERROR:", err.message);
-});
+//mongoose.connect("mongodb+srv://Magda:Kapsel909@cluster0.tiveo.mongodb.net/cluster0?retryWrites=true&w=majority", {
+//	useNewUrlParser: true,
+//	useCreateIndex: true
+//}).then (() => {
+//	console.log("Connected to DB");
+//}).catch(err =>{
+//	console.log("ERROR:", err.message);
+//});
+
+
 
 mongoose.set('useUnifiedTopology', true);
 mongoose.set('useNewUrlParser', true);
@@ -33,7 +36,6 @@ app.use(methodOverride("_method"));
 //PASSPORT CONFICURATION/////////////
 app.use(require("express-session")({
 	secret: "music is the best",
-	store: new MongoStore(options),
 	resave: false,
 	saveUninitialized: false
 }));
@@ -70,7 +72,7 @@ app.get("/", function(req, res){
 
 
 //INDEX route
-app.get("/blogs", isLoggedIn, function (req, res){
+app.get("/blogs", function (req, res){
 	Blog.find({}, function(err, blogs){
 		if (err){
 			console.log("Error!");
@@ -113,7 +115,7 @@ app.get("/blogs/:id", function(req, res){
 });
 
 //EDIT ROUTE
-app.get("/blogs/:id/edit", function(req, res){
+app.get("/blogs/:id/edit", isLoggedIn, function(req, res){
 	Blog.findById(req.params.id, function(err, foundBlog){
 		if (err){
 			res.redirect("/blogs");
@@ -137,7 +139,7 @@ app.put("/blogs/:id", function(req, res){
 
 //DELETE ROUTE
 
-app.delete("/blogs/:id", function(req, res){
+app.delete("/blogs/:id", isLoggedIn,function(req, res){
 	
 	//destroy blog post
 	//redirect somewhere
