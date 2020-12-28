@@ -11,15 +11,7 @@ var express             = require("express"),
 
 
 mongoose.connect(process.env.DATABASEURL);
-//mongodb+srv://Magda:Kapsel909@cluster0.tiveo.mongodb.net/<dbname>?retryWrites=true&w=majority
-//mongoose.connect("mongodb+srv://Magda:Kapsel909@cluster0.tiveo.mongodb.net/cluster0?retryWrites=true&w=majority", {
-//	useNewUrlParser: true,
-//	useCreateIndex: true
-//}).then (() => {
-//	console.log("Connected to DB");
-//}).catch(err =>{
-//	console.log("ERROR:", err.message);
-//});
+
 
 
 
@@ -61,7 +53,7 @@ var blogSchema = new mongoose.Schema({
 // convert to mongoose mmodel!
 var Blog = mongoose.model("Blog", blogSchema);
 
-//creating first post just for the example for the style
+
 
 //RESTFUL ROUTES
 
